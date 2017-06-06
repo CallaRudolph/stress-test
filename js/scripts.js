@@ -18,18 +18,22 @@ $(document).ready(function() {
       copeCount += stressors;
     });
 
-
     $(".guidance").hide();
-    if (count >= 4) {
-      $("#rough").show();
+    if (warningCount > 4 && symptomCount > 3) {
+      if (copeCount > 3) {
+        $("#so-so").show();
+      } else {
+        $("#rough").show();
+      }
+    } else if (warningCount < 4 || symptomCount < 3) {
+      if (copeCount < 3) {
+        $("#so-so").show();
+      } else {
+        $("#good").show();
+      }
     } else {
-      $("#good").show();
+      $("#so-so").show();
     }
-
-
-    // $("#rough").show();
-    // $("input:")
-
 
   });
 });
